@@ -14,9 +14,11 @@ import java.lang.reflect.Modifier
  */
 
 class DelegatedMarkupBuilder extends MarkupBuilder {
+    private String basePackage;
 
-    DelegatedMarkupBuilder(Writer pw) {
+    DelegatedMarkupBuilder(Writer pw, String basePackage) {
         super(pw)
+        this.basePackage = basePackage;
     }
 
     @Override
@@ -65,7 +67,7 @@ class DelegatedMarkupBuilder extends MarkupBuilder {
                     !Object[].class.isAssignableFrom(it.type) &&
                     !Map.class.isAssignableFrom(it.type) &&
                     !Array.class.isAssignableFrom(it.type) &&
-                    !it.type.getName().startsWith("com.griddynamics.model.")
+                    !it.type.getName().startsWith(basePackage)
             ) {
                 if (!it.isAccessible()) {
                     it.setAccessible(true)

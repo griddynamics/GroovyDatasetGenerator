@@ -12,16 +12,17 @@ class DbUnitGroovyScriptRunner {
 
     public static void main(String[] args) {
         StringWriter stringWriter = new StringWriter();
-        generate0(fromInputStream(new FileInputStream(new File(args[0]))), stringWriter)
+        String basePackage = args.length > 1 ? args[1] : "com.griddynamics.model."
+        generate0(fromInputStream(new FileInputStream(new File(args[0]))), stringWriter, basePackage)
         println stringWriter.toString()
     }
 
-    public static void generate(InputStream stream, Writer writer) {
-        generate0(fromInputStream(stream), writer);
+    public static void generate(InputStream stream, Writer writer, String basePackage) {
+        generate0(fromInputStream(stream), writer, basePackage);
     }
     
-    private static void generate0(Script script, Writer writer) {
-        def builder = new DelegatedMarkupBuilder(writer)
+    private static void generate0(Script script, Writer writer, String basePackage) {
+        def builder = new DelegatedMarkupBuilder(writer, basePackage)
         builder.setDoubleQuotes(true)
 
         ExpandoMetaClass metaClass = new ExpandoMetaClass(script.class);
