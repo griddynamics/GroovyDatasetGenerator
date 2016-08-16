@@ -13,6 +13,7 @@ import groovy.transform.builder.SimpleStrategy
 @TupleConstructor
 @ToString
 @Builder(builderStrategy = SimpleStrategy, prefix = "")
+@Db2
 public class Bowl {
     def id
     def petId

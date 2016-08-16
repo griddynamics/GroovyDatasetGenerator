@@ -23,6 +23,8 @@ class DbUnitGroovyScriptRunner {
     
     private static void generate0(Script script, Writer writer, String basePackage) {
         def builder = new DelegatedMarkupBuilder(writer, basePackage)
+        .defaultConsumer(new RelationDb(dataSource))
+        .register(@Cassandra.class, new CassandraConsumer(cassandraSession))
         builder.setDoubleQuotes(true)
 
         ExpandoMetaClass metaClass = new ExpandoMetaClass(script.class);

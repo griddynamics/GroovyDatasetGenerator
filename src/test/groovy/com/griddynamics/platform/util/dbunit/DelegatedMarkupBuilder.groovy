@@ -15,6 +15,7 @@ import java.lang.reflect.Modifier
 
 class DelegatedMarkupBuilder extends MarkupBuilder {
     private String basePackage;
+    Map<Annotation, Consumer> consumers
 
     DelegatedMarkupBuilder(Writer pw, String basePackage) {
         super(pw)

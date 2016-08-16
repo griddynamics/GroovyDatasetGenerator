@@ -13,7 +13,7 @@ import groovy.transform.builder.SimpleStrategy
 @TupleConstructor
 @ToString
 @Builder(builderStrategy = SimpleStrategy, prefix = "")
-
+@Cassandra
 public class Pet {
     def petId;
     String type = "pet"
