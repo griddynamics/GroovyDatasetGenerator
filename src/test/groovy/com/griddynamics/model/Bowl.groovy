@@ -19,5 +19,5 @@ public class Bowl {
     String color = "Yellow"
     String material = "Plastic"
     String size = "S"
-    Feed feed
+    Feed feed = null
 }

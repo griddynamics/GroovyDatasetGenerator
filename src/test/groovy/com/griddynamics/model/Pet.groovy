@@ -20,7 +20,7 @@ public class Pet {
     String name = "Жывотное"
     String color = "White"
     String sex = "N/A"
-    String breed = ""
+    String breed = "N/A"
     Bowl[] bowl = []
 
     def plus(List<Bowl> b) {

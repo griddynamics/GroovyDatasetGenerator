@@ -14,7 +14,7 @@ import groovy.transform.builder.SimpleStrategy
 @ToString
 @Builder(builderStrategy = SimpleStrategy, prefix = "")
 public class Feed {
-    def time = "2016-09-16 08:23:40.389716";
+    def time = new Date();
     def bowlId
     def food = "Water"
     def portion = 100
